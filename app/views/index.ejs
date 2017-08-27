@@ -5,14 +5,14 @@
 	<title><%= title %></title>
 </head>
 <body>
-	
+
 	<!-- Render AngularJS views  -->
 	<section ng-view></section>
 
 	<!-- Render the user object -->
 	<script type="text/javascript">
-		window.user = <%- user || 'null' %>;
-	</script>
+    	window.user = <%- user || 'null' %>;
+  	</script>
 	
 	<!-- Load local libraries -->
 	<script type="text/javascript" src="/lib/angular/angular.js"></script>
