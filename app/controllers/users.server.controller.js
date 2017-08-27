@@ -142,6 +142,16 @@ exports.saveOAuthUserProfile = function(req, profile, done) {
 	});
 };
 
+exports.requiresLogin = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    return res.status(401).send({
+      message: 'User is not logged in'
+    });
+  }
+
+  next();
+};
+
 // Create a new controller method for signing out
 exports.signout = function(req, res) {
 	// Use the Passport 'logout' method to logout
