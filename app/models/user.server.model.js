@@ -44,6 +44,10 @@ var UserSchema = new Schema({
 	},
 	providerId: String,
 	providerData: {},
+	role: {
+		type: String,
+		default: 'User'
+	},
 	created: {
 		type: Date,
 		// Create a default 'created' value

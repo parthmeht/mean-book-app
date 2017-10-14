@@ -4,7 +4,7 @@ module.exports = {
     facebook: {
         clientID: '541523029512626',
         clientSecret: '875501c5e622268479129f6d8945e89c',
-        callbackURL: 'http://localhost:3000/oauth/facebook/callback'
+        callbackURL: 'https://mean-book-app.herokuapp.com/oauth/facebook/callback'
     },
     twitter: {
         clientID: 'gDEWOh8pgaGXFP429kRo30zOM',
