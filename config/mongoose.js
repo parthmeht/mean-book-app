@@ -3,12 +3,15 @@
 
 // Load the module dependencies
 var	config = require('./config'),
-	mongoose = require('mongoose');
+	mongoose = require('mongoose'),
+	autoIncrement = require('mongoose-auto-increment');
 
 // Define the Mongoose configuration method
 module.exports = function() {
 	// Use Mongoose to connect to MongoDB
 	var db = mongoose.connect(config.db);
+
+	autoIncrement.initialize(db);
 
 	// Load the 'User' model 
 	require('../app/models/user.server.model');

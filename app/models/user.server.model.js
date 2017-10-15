@@ -4,7 +4,8 @@
 // Load the module dependencies
 var mongoose = require('mongoose'),
 	crypto = require('crypto'),
-	Schema = mongoose.Schema;
+	Schema = mongoose.Schema,
+	autoIncrement = require('mongoose-auto-increment');
 
 // Define a new 'UserSchema'
 var UserSchema = new Schema({
@@ -52,7 +53,9 @@ var UserSchema = new Schema({
 		type: Date,
 		// Create a default 'created' value
 		default: Date.now
-	}
+	},
+	resetPasswordToken: String,
+	resetPasswordExpires: Date
 });
 
 // Set the 'fullname' virtual property
@@ -114,6 +117,8 @@ UserSchema.set('toJSON', {
 	getters: true,
 	virtuals: true
 });
+
+UserSchema.plugin(autoIncrement.plugin, { model: 'User', field: 'userId' });
 
 // Create the 'User' model out of the 'UserSchema'
 mongoose.model('User', UserSchema);
