@@ -1,0 +1,35 @@
+<!-- The sign Up view -->
+<section class="container-fluid" ng-controller="MyAccountController" data-ng-show="!authentication.user">
+    <div class="row justify-content-center">
+        <div class="col-4 my-4 py-3 px-3 border border-dark">
+            <form action="/signup" method="post">
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" class="form-control" id="firstName" ng-model="user.firstName" name="firstName" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" class="form-control" id="lastName" ng-model="user.lastName" name="lastName" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <label for="emailId">Email Id:</label>
+                    <input type="email" class="form-control" id="emailId" ng-model="user.emailId" name="email" placeholder="Email Id">
+                </div>
+                <div class="form-group">
+                    <label for="userName">Username:</label>
+                    <input type="text" class="form-control" id="userName" ng-model="user.userName" name="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label for="userPassword">Password</label>
+                    <input type="password" class="form-control" id="userPassword" ng-model="user.password" name="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary mx-auto my-2">Sign Up</button>
+                    <a href="/oauth/facebook" class="btn btn-primary mx-auto my-2">Sign in with Facebook</a>
+                    <a href="/oauth/twitter" class="btn btn-primary mx-auto my-2">Sign in with Twitter</a>
+                    <a href="/oauth/google" class="btn btn-primary mx-auto my-2">Sign in with Google</a>
+                </div>
+            </form>
+        </div>
+    </div>    
+</section>

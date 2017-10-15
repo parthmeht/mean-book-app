@@ -1,27 +1,29 @@
 <!-- The sign in view -->
 <section class="container-fluid" ng-controller="MyAccountController" data-ng-show="!authentication.user">
-    <div class="row justify-content-center my-3">
-        <form action="/signin" method="post">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Username</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" ng-model="user.username" name="username" aria-describedby="emailHelp" placeholder="Username">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" ng-model="user.password" name="password" placeholder="Password">
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Sign In</button>
-            </div>
-            <div class="form-group">
-                <a href="/oauth/facebook" class="btn btn-primary">Sign in with Facebook</a>
-            </div>
-            <div class="form-group">
-                <a href="/oauth/twitter" class="btn btn-primary">Sign in with Twitter</a>
-            </div>
-            <div class="form-group">
-                <a href="/oauth/google" class="btn btn-primary">Sign in with Google</a>
-            </div>
-        </form>
+    <div class="row justify-content-center">
+        <div class="col-4 my-4 py-3 px-3 border border-dark">
+            <form action="/signin" method="post">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Username</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" ng-model="user.username" name="username" aria-describedby="emailHelp" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" ng-model="user.password" name="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                </div>
+                <div class="form-group">
+                    <a href="/oauth/facebook" class="btn btn-primary">Sign in with Facebook</a>
+                </div>
+                <div class="form-group">
+                    <a href="/oauth/twitter" class="btn btn-primary">Sign in with Twitter</a>
+                </div>
+                <div class="form-group">
+                    <a href="/oauth/google" class="btn btn-primary">Sign in with Google</a>
+                </div>
+            </form>
+        </div>
     </div>    
 </section>

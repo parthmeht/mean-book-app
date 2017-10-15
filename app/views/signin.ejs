@@ -10,7 +10,11 @@
 
   	<!-- Display flash messages  -->
 	<% for(var i in messages) { %>
-	   <div class="flash row justify-content-center my-3 text-danger"><%= messages[i] %></div>
+	   <div class="flash">
+			<div class="col ml-auto mt-2 text-center text-danger">
+			   <%= messages[i] %>
+			</div>
+		</div>
 	<% } %>
 
 	<div ng-include="'users/views/users.client.signin.html'" ></div>
