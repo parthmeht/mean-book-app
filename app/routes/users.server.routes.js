@@ -54,4 +54,8 @@ module.exports = function(app) {
 
 	// Set up the 'signout' route
 	app.get('/signout', users.signout);
+
+	app.get('/api/userIdList' , users.getUserIdList);
+
+	app.post('/api/changeUserRole' , users.requiresLogin , users.changeUserRole);
 };

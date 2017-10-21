@@ -1,0 +1,53 @@
+<!-- The assign roles in webpage -->
+<section class="container-fluid" ng-controller="MyAccountController" data-ng-show="authentication.user" data-ng-init="loadData()">
+    <div class="row justify-content-center">
+        <div class="col-4 my-4 py-3 px-3 border border-dark" data-ng-hide="showUserAcess">
+            <form data-ng-submit="selectedUserFunc()">
+                <div class="form-group">
+                    <label for="userListSelect1">User List</label>
+                    <select class="form-control" id="userListSelect1" ng-model="selectedUser" ng-options="user as (user.fullName +' - '+ user.userId) for user in userList"></select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form> 
+        </div>
+        <div class="col-6 my-4 py-3 px-3 border border-dark" data-ng-show="showUserAcess">
+            <form data-ng-submit="changeUserRoleFunc()">
+                <div class="form-group row">
+                    <div class="col-3 text-dark"><h6>User Id :</h6></div>
+                    <div class="col-3 text-info"><h6>{{selectedUser.userId}}</div>
+                    <div class="col-3 text-dark"><h6>User Full Name :</h6></div>
+                    <div class="col-3 text-info"><h6>{{selectedUser.fullName}}</h6></div>
+                </div>
+                <div class="form-group">
+                    <h6 class="text-dark">Select the desired user role to grant : </h6>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="userRoleOptions" id="userRoleRadio1" data-ng-model="selectedUser.role" value="Admin"> Admin
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="userRoleOptions" id="userRoleRadio2" data-ng-model="selectedUser.role" value="User"> User
+                    </label>
+                </div>
+                <div class="form-group my-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>   
+        </div>
+    </div>
+
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">{{modal.title}}</h3>
+        </div>
+        <div class="modal-body">
+            {{modal.message}}
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+</section>

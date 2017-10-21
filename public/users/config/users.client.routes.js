@@ -13,6 +13,9 @@ angular.module('users').config(['$routeProvider',
 		}).
 		when('/user/:userId', {
 			templateUrl: 'users/views/users.client.accountInfo.html'
+		}).
+		when('/users/assignRoles', {
+			templateUrl: 'users/views/users.client.assignRoles.html'
 		});
 	}
 ]); 

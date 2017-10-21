@@ -160,3 +160,30 @@ exports.signout = function(req, res) {
 	// Redirect the user back to the main application page
 	res.redirect('/');
 };
+
+exports.getUserIdList = function(req, res){
+	User.find({}).select('userId firstName lastName role username').exec(function(err, users) {
+		if (err) {
+		  return res.status(400).send({
+			message: getErrorMessage(err)
+		  });
+		} else {
+		  res.json(users);
+		}
+	});
+};
+
+exports.changeUserRole = function(req, res, next){
+	var user = new User(req.body);
+	console.log(user);
+	var query = { _id: user._id };
+	User.findOneAndUpdate(query,{role:user.role}).exec(function(err) {
+		if (err) {
+		  return res.status(400).send({
+			message: getErrorMessage(err)
+		  });
+		} else {
+		  res.json({message: user.username+' : User role updated successfully...'});
+		}
+	});
+};
