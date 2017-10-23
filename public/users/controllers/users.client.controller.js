@@ -4,7 +4,7 @@
 angular.module('users').controller('MyAccountController', ['$scope', 'Authentication','UserServices', '$rootScope', '$log', '$uibModal', 'modalFactory',
 	function($scope, Authentication, UserServices, $rootScope, $log, $uibModal, modalFactory) {
 		$scope.authentication = Authentication;
-		
+		$scope.isNavCollapsed = true;
 		$scope.loadData = function(){
 			$scope.showUserAcess = false;
 			if($scope.authentication.user){
