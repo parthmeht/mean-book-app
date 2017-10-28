@@ -1,0 +1,36 @@
+<!-- The assign roles in webpage -->
+<section class="container-fluid" ng-controller="MenuController" data-ng-init="findItem()" data-ng-show="authentication.user">
+    <div class="row justify-content-center">
+        <div class="col-4 my-4 py-3 px-3 border border-dark">
+            <form data-ng-submit="submitMenuItemFunc()">
+                <div class="form-group">
+                    <label class="col-form-label" for="itemName">Item Name</label>
+                    <input type="text" class="form-control" id="itemName" data-ng-model="item.name" placeholder="Item Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="itemCategory">Item Category</label>
+                    <select class="form-control" data-ng-model="item.category" id="itemCategory" ng-options="category.id as category.name for category in categoryList" required>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="itemPrice">Item Price</label>
+                    <input type="number" class="form-control" id="itemPrice" data-ng-model="item.price" placeholder="Item Price" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form> 
+        </div>
+    </div>
+
+    <script type="text/ng-template" id="menuModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">{{modal.title}}</h3>
+        </div>
+        <div class="modal-body">
+            {{modal.message}}
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">{{ modal.okLabel | ifEmpty:'Ok'}}</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">{{ modal.cancelLabel | ifEmpty:'Cancel'}}</button>
+        </div>
+    </script>
+</section>

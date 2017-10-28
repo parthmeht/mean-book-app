@@ -46,29 +46,28 @@ angular.module('users').controller('MyAccountController', ['$scope', 'Authentica
 
 angular.module('users').factory('modalFactory', function($uibModal) {
   return {
-	open: function(size, template, params) {
-	  return $uibModal.open({
-		animation: true,
-		templateUrl: template || 'myModalContent.html',
-		controller: 'ModalResultInstanceCtrl',
-		size: size,
-		resolve: {
-		  params: function() {
-			return params;
-		  }
+		open: function(size, template, params) {
+			return $uibModal.open({
+				animation: true,
+				templateUrl: template || 'myModalContent.html',
+				controller: 'ModalResultInstanceCtrl',
+				size: size,
+				resolve: {
+					params: function() {
+						return params;
+					}
+				}
+			});
 		}
-	  });
-	}
   };
 });
 
 angular.module('users').controller('ModalResultInstanceCtrl', function($scope, $uibModalInstance, params) {
 	$scope.modal = {};
-	$scope.modal.message = params.message;
-	$scope.modal.title = params.title;
+	$scope.modal = params;
 
 	$scope.ok = function() {
-		$uibModalInstance.close($scope.message);
+		$uibModalInstance.close($scope.modal);
 	};
 
 	$scope.cancel = function() {

@@ -12,17 +12,20 @@
                 <li class="nav-item">
                         <a class="nav-link" href="/#!/user/{{authentication.user.userId}}">My Account</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="/#!/articles/create">Create Articles</a>
-                </li>
+                </li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="/#!/articles">List Articles</a>
-                </li>
+                </li> 
                 <li class="nav-item" ng-if="authentication.user.role == 'Admin'">
                     <a class="nav-link" href="/#!/users/assignRoles">Assign Roles</a>
                 </li>
                 <li class="nav-item" ng-if="authentication.user.role == 'Admin'">
-                    <a class="nav-link" href="/#!/menu/create">Create Menu Item</a>
+                    <a class="nav-link" href="/#!/menu/item/create">Create Menu Item</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#!/menu/item">Menu List</a>
                 </li>
             </ul>
             <ul class="navbar-nav mr-auto" data-ng-show="!authentication.user">

@@ -20,9 +20,9 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$routePa
     };
       
     $scope.findOne = function() {
-        $scope.article = Articles.get({
-          articleId: $routeParams.articleId
-        });
+      $scope.article = Articles.get({
+        articleId: $routeParams.articleId
+      });
     };
 
     $scope.update = function() {
