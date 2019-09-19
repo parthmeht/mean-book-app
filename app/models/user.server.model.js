@@ -70,16 +70,32 @@ UserSchema.virtual('fullName').get(function() {
 // Use a pre-save middleware to hash the password
 UserSchema.pre('save', function(next) {
 	if (this.password) {
-		this.salt = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64');
+		//this.salt = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64');
+		this.salt = genRandomString(16);
 		this.password = this.hashPassword(this.password);
 	}
 
 	next();
 });
 
+/**
+ * generates random string of characters i.e salt
+ * @function
+ * @param {number} length - Length of the random string.
+ */
+var genRandomString = function(length){
+    return crypto.randomBytes(Math.ceil(length/2))
+            .toString('hex') /** convert to hexadecimal format */
+            .slice(0,length);   /** return required number of characters */
+};
+
 // Create an instance method for hashing a password
 UserSchema.methods.hashPassword = function(password) {
-	return crypto.pbkdf2Sync(password, this.salt, 10000, 64).toString('base64');
+	//return crypto.pbkdf2Sync(password, this.salt, 10000, 64).toString('base64');
+	var hash = crypto.createHmac('sha512', this.salt); /** Hashing algorithm sha512 */
+    hash.update(password);
+    var value = hash.digest('hex');
+    return value;
 };
 
 // Create an instance method for authenticating user
